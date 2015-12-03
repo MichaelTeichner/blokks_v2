@@ -1,1 +1,11 @@
-%h2 Index placeholder
+%h1 Blokks
+%hr
+
+- @pages.each do |page|
+	%h2= link_to page.name, page
+	%p
+		Shared by
+		= page.user.name
+		= time_ago_in_words(page.created_at)
+		ago
+	%hr

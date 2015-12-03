@@ -1,0 +1,6 @@
+
+%h2= @page.name
+
+- if user_signed_in? && @page.user == current_user
+	= link_to "Edit", edit_page_path(@page), class: "btn btn-default"
+	= link_to "Delete", page_path(@page), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-default"

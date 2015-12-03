@@ -1,0 +1,30 @@
+!!!
+
+%html
+%head
+	%title Blokks
+	= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+	= javascript_include_tag 'application', 'data-turbolinks-track' => true
+	= csrf_meta_tags
+
+%body
+
+	.navbar.navbar-inverse.navbar
+		.container
+			.navbar-header
+				= link_to "All Pages", root_path, class: "navbar-brand"
+			
+			.navbar-right
+				- if user_signed_in?
+					= link_to "Create Page" , new_page_path, class: "navbar-brand"
+					= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "navbar-brand"
+					= link_to "Edit Account", edit_user_registration_path, class: "navbar-brand"
+				- else
+					= link_to "Sign Up", new_user_registration_path, class: "navbar-brand"
+					= link_to "Sign In", new_user_session_path, class: "navbar-brand"
+
+	.container
+		%p.notice= notice
+		%p.alert= alert
+
+		= yield
