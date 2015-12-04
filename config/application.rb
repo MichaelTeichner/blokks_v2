@@ -22,5 +22,25 @@ module BlokksV2
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    ActionMailer::Base.smtp_settings = {
+
+        :address                        => 'smtp.gmail.com', #standard field
+        :domain                         => 'mail.google.com', #standard field
+        :port                           => 587, #standard field
+        :user_name                      => "blokks.test@gmail.com",
+        :password                       => "parola1234",
+        :authentication                 => 'login', #standard field
+        :enable_starttls_auto           => true #standard field
+    }
+
+    #ActionMailer::Base.smtp_settings = {
+
+    #    :port                           => '587',
+    #    :address                        => 'smtp.mandrillapp.com',
+    #    :user_name                      => "michael.r.teichner@gmail.com",
+    #    :password                       => "pA55zYKNRMobneTi2EaqZg",
+    #    :authentication                 => :plain
+    #}
   end
 end
