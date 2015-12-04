@@ -18,7 +18,6 @@ class PagesController < ApplicationController
 		@page = current_user.pages.build(page_params)
 
 		if @page.save
-			PageMailer.page_created(current_user).deliver
 			redirect_to @page
 		else
 			render 'new'
